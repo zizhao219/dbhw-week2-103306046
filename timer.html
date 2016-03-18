@@ -278,7 +278,7 @@
  </div>
 
      <script>
-     var t;
+
 
      function minus() {
         if (document.getElementById("num")) {
@@ -291,17 +291,17 @@
                 document.getElementById("num").innerHTML = curr - 1;
             }
         }
-        t = setTimeout(function() {
+         setTimeout(function() {
             minus();
         }, 1000);
     };
     minus();
+   function restart() {
 
-    function restart() {
-        clearTimeout(t);
-        document.getElementById("num").innerHTML = 61;
-        minus();
+        document.getElementById("num").innerHTML = 60;
+        return false;
     }
+
     </script>
 </body>
 </html>
