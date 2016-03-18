@@ -114,8 +114,8 @@
 
   #num {
     position: absolute;
-    top: 50%;
-    left: 52%;
+    top: 52%;
+    left: 54%;
     z-index: 200;
     margin-left: -9%;
     margin-top: -7%;
@@ -123,6 +123,34 @@
     font-family:'Comic Sans MS';
 
   }
+
+  .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-family:'Comic Sans MS';
+    border-radius: 12px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: transparent;
+    color: rgb(222,106,38);
+    border: 2px solid rgb(222,106,38);
+}
+
+.button1:hover {
+    background-color: rgb(222,106,38);
+    color: white;
+}
 
 
   /*-------------------------------------------
@@ -197,9 +225,45 @@
 </head>
 
 <body>
+<div class="container" style="text-align: center">
 <div class="timer-wrapper">
   <span id="num">60</span>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <button type="button" class="button button1" onclick="restart()">RESTART</button>
   <ul>
     <li></li>
     <li></li>
@@ -208,31 +272,36 @@
     <li></li>
   </ul>
 
+
+
   </div>
+ </div>
 
      <script>
+     var t;
 
      function minus() {
-       if (document.getElementById("num")) {
-         var curr = parseInt(document.getElementById("num").innerHTML);
-       }
+        if (document.getElementById("num")) {
+            var curr = parseInt(document.getElementById("num").innerHTML);
+        }
+        if (curr && curr <= 61) {
+            if (curr <= 10) {
+                document.getElementById("num").innerHTML = "0" + (curr - 1);
+            } else {
+                document.getElementById("num").innerHTML = curr - 1;
+            }
+        }
+        t = setTimeout(function() {
+            minus();
+        }, 1000);
+    };
+    minus();
 
-       if (curr && curr <= 60) {
-
-         if (curr <= 10) {
-           document.getElementById("num").innerHTML = "0" + (curr - 1);
-         } else {
-           document.getElementById("num").innerHTML = curr - 1;
-         }
-       } else {
-         document.getElementById("num").innerHTML = 60;
-       }
-
-       setTimeout(function() {
-         minus();
-       }, 1000);
-     };
-     minus();
+    function restart() {
+        clearTimeout(t);
+        document.getElementById("num").innerHTML = 61;
+        minus();
+    }
     </script>
 </body>
 </html>
